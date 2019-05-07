@@ -11,6 +11,7 @@ export class SidebarComponent implements OnInit {
     isActive: boolean;
     collapsed: boolean;
     showMenu: string;
+    showSubMenu: string;
     pushRightClass: string;
 
     @Output() collapsedEvent = new EventEmitter<boolean>();
@@ -45,6 +46,16 @@ export class SidebarComponent implements OnInit {
         } else {
             this.showMenu = element;
         }
+    }
+
+    addExpandSubClass(element: any) {
+        if (element === this.showSubMenu) {
+            this.showSubMenu = '1';
+        } else {
+            this.showSubMenu = element;
+        }
+        console.log('Hola', this.showSubMenu);
+
     }
 
     toggleCollapsed() {

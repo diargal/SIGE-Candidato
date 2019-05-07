@@ -9,28 +9,42 @@
       <span>{{ 'Reports' | translate }}</span>
     </a>-->
     <div class="nested-menu">
-      <a class="list-group-item" (click)="addExpandClass('reports')">
+      <a class="list-group-item" (click)="addExpandClass('reports'); addExpandSubClass('no')">
         <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;
         <span>{{ 'Reports' | translate }}</span>
       </a>
       <li class="nested" [class.expand]="showMenu === 'reports'">
         <ul class="submenu">
           <li>
-            <a [routerLink]="['/charts']" [routerLinkActive]="['router-link-active']">
-              <i class="fa fa-fw fa-hand-peace-o"></i>&nbsp;
-              <span>{{ 'Coordinadores' | translate }}</span>
-            </a>
+            <div class="nested-menu">
+              <a class="list-group-item" (click)="addExpandSubClass('campania')">
+                <!--<i class="fa fa-fw fa-percent"></i>&nbsp;-->
+                &nbsp;
+                <span>{{ 'Campaña' | translate }}</span>
+              </a>
+              <li class="nested" *ngIf="showSubMenu === 'campania'">
+                <ul class="submenu">
+                  <li>
+                    <a [routerLink]="['/charts']" [routerLinkActive]="['router-link-active']">
+                      <!--  <i class="fa fa-fw fa-certificate"></i>&nbsp; -->
+                      <span>{{ 'Logísticos' | translate }}</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a [routerLink]="['/charts']" [routerLinkActive]="['router-link-active']">
+                      <!-- <i class="fa fa-fw fa-thumb-tack"></i>&nbsp; -->
+                      <span>{{ 'Localidades' | translate }}</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </div>
           </li>
+
           <li>
             <a href="javascript:void(0)">
-              <i class="fa fa-fw fa-thumb-tack"></i>&nbsp;
-              <span>{{ 'Localidades' | translate }}</span>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <i class="fa fa-fw fa-eye"></i>&nbsp;
-              <span>{{ 'Testigos' | translate }}</span>
+              <i class=""></i>&nbsp;
+              <span>{{ 'Día D' | translate }}</span>
             </a>
           </li>
         </ul>

@@ -23,8 +23,8 @@ export class DashboardComponent implements OnInit {
                 imagePath: 'assets/images/slider2.jpg',
                 label: 'Second slide label',
                 text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-            },
-            {
+            }
+            , {
                 imagePath: 'assets/images/slider3.jpg',
                 label: 'Third slide label',
                 text:
@@ -52,7 +52,7 @@ export class DashboardComponent implements OnInit {
         );
     }
 
-    ngOnInit() {}
+    ngOnInit() { }
 
     public closeAlert(alert: any) {
         const index: number = this.alerts.indexOf(alert);
