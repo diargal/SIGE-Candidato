@@ -1,13 +1,56 @@
 <nav class="sidebar" [ngClass]="{ sidebarPushRight: isActive, collapsed: collapsed }">
   <div class="list-group">
     <a routerLink="/dashboard" [routerLinkActive]="['router-link-active']" class="list-group-item">
-      <i class="fa fa-fw fa-dashboard"></i>&nbsp;
+      <i class="fa fa-home"></i>
+      &nbsp;
       <span>{{ 'Dashboard' | translate }}</span>
     </a>
     <!--<a [routerLink]="['/charts']" [routerLinkActive]="['router-link-active']" class="list-group-item">
       <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;
       <span>{{ 'Reports' | translate }}</span>
     </a>-->
+
+    <div class="nested-menu">
+      <a class="list-group-item" (click)="addExpandClass('expenses')">
+        <i class="fa fa-fw fa-tasks"></i>&nbsp;
+        <span>{{ 'Administrar' | translate }}</span>
+      </a>
+      <li class="nested" [class.expand]="showMenu === 'expenses'">
+        <ul class="submenu">
+          <li>
+            <a href="javascript:void(0)">
+              <i class="far fa-calendar-alt"></i>&nbsp;
+              <span>{{ 'Eventos' | translate }}</span>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">
+              <i class="fa fa-fw fa-percent"></i>&nbsp;
+              <span>{{ 'Gastos' | translate }}</span>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">
+              <i class="fa fa-fw fa-money"></i>&nbsp;
+              <span>{{ 'Budget' | translate }}</span>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">
+              <i class="fas fa-user-check"></i>&nbsp;
+              <span>{{ 'Votantes' | translate }}</span>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">
+              <i class="fa fa-fist-raised"></i>&nbsp;
+              <span>{{ 'Líderes' | translate }}</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+    </div>
+
     <div class="nested-menu">
       <a class="list-group-item" (click)="addExpandClass('reports'); addExpandSubClass('no')">
         <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;
@@ -45,64 +88,6 @@
             <a href="javascript:void(0)">
               <i class=""></i>&nbsp;
               <span>{{ 'Día D' | translate }}</span>
-            </a>
-          </li>
-        </ul>
-      </li>
-    </div>
-
-    <div class="nested-menu">
-      <a class="list-group-item" (click)="addExpandClass('expenses')">
-        <i class="fa fa-fw fa-percent"></i>&nbsp;
-        <span>{{ 'Expenses' | translate }}</span>
-      </a>
-      <li class="nested" [class.expand]="showMenu === 'expenses'">
-        <ul class="submenu">
-          <li>
-            <a href="javascript:void(0)">
-              <i class="fa fa-monument"></i>&nbsp;
-              <span>{{ 'Submenu' | translate }}</span>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <i class="fa fa-monument"></i>&nbsp;
-              <span>{{ 'Submenu' | translate }}</span>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <i class="fa fa-monument"></i>&nbsp;
-              <span>{{ 'Submenu' | translate }}</span>
-            </a>
-          </li>
-        </ul>
-      </li>
-    </div>
-
-    <div class="nested-menu">
-      <a class="list-group-item" (click)="addExpandClass('budget')">
-        <i class="fa fa-fw fa-money"></i>&nbsp;
-        <span>{{ 'Budget' | translate }}</span>
-      </a>
-      <li class="nested" [class.expand]="showMenu === 'budget'">
-        <ul class="submenu">
-          <li>
-            <a href="javascript:void(0)">
-              <i class="fa fa-monument"></i>&nbsp;
-              <span>{{ 'Submenu' | translate }}</span>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <i class="fa fa-monument"></i>&nbsp;
-              <span>{{ 'Submenu' | translate }}</span>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <i class="fa fa-monument"></i>&nbsp;
-              <span>{{ 'Submenu' | translate }}</span>
             </a>
           </li>
         </ul>
