@@ -5,10 +5,6 @@
       &nbsp;
       <span>{{ 'Dashboard' | translate }}</span>
     </a>
-    <!--<a [routerLink]="['/charts']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-      <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;
-      <span>{{ 'Reports' | translate }}</span>
-    </a>-->
 
     <div class="nested-menu">
       <a class="list-group-item" (click)="addExpandClass('expenses')">
@@ -18,32 +14,32 @@
       <li class="nested" [class.expand]="showMenu === 'expenses'">
         <ul class="submenu">
           <li>
-            <a href="javascript:void(0)">
-              <i class="far fa-calendar-alt"></i>&nbsp;
+            <a [routerLink]="['/administrar.eventos']" [routerLinkActive]="['router-link-active']">
+              <i class="far fa-fw fa-calendar-alt"></i>&nbsp;
               <span>{{ 'Eventos' | translate }}</span>
             </a>
           </li>
           <li>
-            <a href="javascript:void(0)">
+            <a [routerLink]="['/administrar.gastos']" [routerLinkActive]="['router-link-active']">
               <i class="fa fa-fw fa-percent"></i>&nbsp;
               <span>{{ 'Gastos' | translate }}</span>
             </a>
           </li>
           <li>
-            <a href="javascript:void(0)">
+            <a [routerLink]="['/administrar.presupuesto']" [routerLinkActive]="['router-link-active']">
               <i class="fa fa-fw fa-money"></i>&nbsp;
               <span>{{ 'Budget' | translate }}</span>
             </a>
           </li>
           <li>
-            <a href="javascript:void(0)">
-              <i class="fas fa-user-check"></i>&nbsp;
+            <a [routerLink]="['/administrar.votantes']" [routerLinkActive]="['router-link-active']">
+              <i class="fas fa-fw fa-user-check"></i>&nbsp;
               <span>{{ 'Votantes' | translate }}</span>
             </a>
           </li>
           <li>
-            <a href="javascript:void(0)">
-              <i class="fa fa-fist-raised"></i>&nbsp;
+            <a [routerLink]="['/administrar.lideres']" [routerLinkActive]="['router-link-active']">
+              <i class="fa fa-fw fa-fist-raised"></i>&nbsp;
               <span>{{ 'Líderes' | translate }}</span>
             </a>
           </li>
@@ -61,40 +57,41 @@
           <li>
             <div class="nested-menu">
               <a class="list-group-item" (click)="addExpandSubClass('campania')">
-                <!--<i class="fa fa-fw fa-percent"></i>&nbsp;-->
+                <i class="fab fa-fw fa-delicious"></i>
                 &nbsp;
                 <span>{{ 'Campaña' | translate }}</span>
               </a>
-              <li class="nested" *ngIf="showSubMenu === 'campania'">
-                <ul class="submenu">
-                  <li>
-                    <a [routerLink]="['/charts']" [routerLinkActive]="['router-link-active']">
-                      <!--  <i class="fa fa-fw fa-certificate"></i>&nbsp; -->
-                      <span>{{ 'Logísticos' | translate }}</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a [routerLink]="['/charts']" [routerLinkActive]="['router-link-active']">
-                      <!-- <i class="fa fa-fw fa-thumb-tack"></i>&nbsp; -->
-                      <span>{{ 'Localidades' | translate }}</span>
-                    </a>
-                  </li>
-                </ul>
+          <li class="nested" *ngIf="showSubMenu === 'campania'">
+            <ul class="submenu">
+              <li>
+                <a [routerLink]="['/charts']" [routerLinkActive]="['router-link-active']">
+                  <!--  <i class="fa fa-fw fa-certificate"></i>&nbsp; -->
+                  <span>{{ 'Logísticos' | translate }}</span>
+                </a>
               </li>
-            </div>
+              <li>
+                <a [routerLink]="['/reports.campania.localidad']" [routerLinkActive]="['router-link-active']">
+                  <!-- <i class="fa fa-fw fa-thumb-tack"></i>&nbsp; -->
+                  <span>{{ 'Localidades' | translate }}</span>
+                </a>
+              </li>
+            </ul>
           </li>
-
-          <li>
-            <a href="javascript:void(0)">
-              <i class=""></i>&nbsp;
-              <span>{{ 'Día D' | translate }}</span>
-            </a>
-          </li>
-        </ul>
-      </li>
     </div>
+    </li>
 
-    <!--
+    <li>
+      <a [routerLink]="['/reports.dia.d']" [routerLinkActive]="['router-link-active']">
+        <i class=" fab fa-fw fa-dyalog"></i>
+        &nbsp;
+        <span>{{ 'Día D' | translate }}</span>
+      </a>
+    </li>
+    </ul>
+    </li>
+  </div>
+
+  <!--
     <a [routerLink]="['/tables']" [routerLinkActive]="['router-link-active']" class="list-group-item">
       <i class="fa fa-fw fa-table"></i>&nbsp;
       <span>{{ 'Tables' | translate }}</span>
