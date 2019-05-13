@@ -1,6 +1,7 @@
 <nav class="sidebar" [ngClass]="{ sidebarPushRight: isActive, collapsed: collapsed }">
   <div class="list-group">
-    <a routerLink="/dashboard" [routerLinkActive]="['router-link-active']" class="list-group-item">
+    <a routerLink="/dashboard" [routerLinkActive]="['router-link-active']" (click)="addExpandClass('not')"
+      class="list-group-item">
       <i class="fa fa-home"></i>
       &nbsp;
       <span>{{ 'Dashboard' | translate }}</span>
@@ -64,14 +65,14 @@
           <li class="nested" *ngIf="showSubMenu === 'campania'">
             <ul class="submenu">
               <li>
-                <a [routerLink]="['/charts']" [routerLinkActive]="['router-link-active']">
-                  <!--  <i class="fa fa-fw fa-certificate"></i>&nbsp; -->
+                <a [routerLink]="['/reports.campania.logistico']" [routerLinkActive]="['router-link-active']">
+                  <i class="fab fa-fw fa-angellist"></i>&nbsp;
                   <span>{{ 'Logísticos' | translate }}</span>
                 </a>
               </li>
               <li>
                 <a [routerLink]="['/reports.campania.localidad']" [routerLinkActive]="['router-link-active']">
-                  <!-- <i class="fa fa-fw fa-thumb-tack"></i>&nbsp; -->
+                  <i class="fas fa-fw fa-map-marked-alt"></i>&nbsp;
                   <span>{{ 'Localidades' | translate }}</span>
                 </a>
               </li>

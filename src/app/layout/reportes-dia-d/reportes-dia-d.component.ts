@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReportesDiaDComponent implements OnInit {
 
+  public typePage = 3;
+
   constructor() { }
 
   ngOnInit() {

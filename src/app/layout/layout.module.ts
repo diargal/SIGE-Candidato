@@ -12,17 +12,28 @@ import { AdministrarGastosComponent } from './administrar-gastos/administrar-gas
 import { AdministrarPresupuestoComponent } from './administrar-presupuesto/administrar-presupuesto.component';
 import { AdministrarVotantesComponent } from './administrar-votantes/administrar-votantes.component';
 import { AdministrarLideresComponent } from './administrar-lideres/administrar-lideres.component';
-import { ReportesDiaDComponent } from './reportes-dia-d/reportes-dia-d.component';
-import { ReportesCampaniaLogisticosComponent } from './reportes-campania-logisticos/reportes-campania-logisticos.component';
-import { ReportesCampaniaLocalidadesComponent } from './reportes-campania-localidades/reportes-campania-localidades.component';
+import { ReportesCampaniaLocalidadesModule } from './reportes-campania-localidades/reportes-campania-localidades.module';
+import { ReportesDiaDModule } from './reportes-dia-d/reportes-dia-d.module';
+import { ReportesCampaniaLogisticosModule } from './reportes-campania-logisticos/reportes-campania-logisticos.module';
 
 @NgModule({
     imports: [
         CommonModule,
         LayoutRoutingModule,
         TranslateModule,
-        NgbDropdownModule
+        NgbDropdownModule,
+        ReportesCampaniaLocalidadesModule,
+        ReportesDiaDModule,
+        ReportesCampaniaLogisticosModule
     ],
-    declarations: [LayoutComponent, SidebarComponent, HeaderComponent, AdministrarEventoComponent, AdministrarGastosComponent, AdministrarPresupuestoComponent, AdministrarVotantesComponent, AdministrarLideresComponent, ReportesDiaDComponent, ReportesCampaniaLogisticosComponent, ReportesCampaniaLocalidadesComponent]
+    declarations: [
+        LayoutComponent,
+        SidebarComponent,
+        HeaderComponent,
+        AdministrarEventoComponent,
+        AdministrarGastosComponent,
+        AdministrarPresupuestoComponent,
+        AdministrarVotantesComponent,
+        AdministrarLideresComponent]
 })
-export class LayoutModule {}
+export class LayoutModule { }

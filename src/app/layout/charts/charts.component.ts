@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { routerTransition } from '../../router.animations';
-
 @Component({
     selector: 'app-charts',
     templateUrl: './charts.component.html',
@@ -8,26 +7,35 @@ import { routerTransition } from '../../router.animations';
     animations: [routerTransition()]
 })
 export class ChartsComponent implements OnInit {
+
+    @Input() public namePage: string;
+    @Input() public typePage: string;
+
     // bar chart
     public barChartOptions: any = {
         scaleShowVerticalLines: false,
         responsive: true
     };
     public barChartLabels: string[] = [
-        '2006',
-        '2007',
-        '2008',
-        '2009',
-        '2010',
-        '2011',
-        '2012'
+        'Puesto votación #1',
+        'Puesto votación #2',
+        'Puesto votación #3',
+        'Puesto votación #4',
+        'Puesto votación #5',
+        'Puesto votación #6',
+        'Puesto votación #7'
+
     ];
     public barChartType: string;
     public barChartLegend: boolean;
 
     public barChartData: any[] = [
-        { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
-        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B' }
+        { data: [65, 59, 80, 81, 56, 55, 40], label: 'Mesa 1' },
+        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Mesa 2' },
+        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Mesa 3' },
+        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Mesa 4' },
+        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Mesa 5' },
+        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Mesa 6' }
     ];
 
     // Doughnut
@@ -158,7 +166,7 @@ export class ChartsComponent implements OnInit {
          */
     }
 
-    constructor() {}
+    constructor() { }
 
     ngOnInit() {
         this.barChartType = 'bar';

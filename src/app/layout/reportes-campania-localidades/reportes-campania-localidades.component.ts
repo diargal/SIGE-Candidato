@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReportesCampaniaLocalidadesComponent implements OnInit {
 
+  public typePage = 2;
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }

@@ -8,9 +8,9 @@ describe('ReportesCampaniaLocalidadesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ReportesCampaniaLocalidadesComponent ]
+      declarations: [ReportesCampaniaLocalidadesComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
