@@ -17,25 +17,25 @@ export class ChartsComponent implements OnInit {
         responsive: true
     };
     public barChartLabels: string[] = [
-        'Puesto votación #1',
-        'Puesto votación #2',
-        'Puesto votación #3',
-        'Puesto votación #4',
-        'Puesto votación #5',
-        'Puesto votación #6',
-        'Puesto votación #7'
+        'Localidad 1',
+        'Localidad 2',
+        'Localidad 3',
+        'Localidad 4',
+        'Localidad 5',
+        'Localidad 6',
+        'Localidad 7'
 
     ];
     public barChartType: string;
     public barChartLegend: boolean;
 
     public barChartData: any[] = [
-        { data: [65, 59, 80, 81, 56, 55, 40], label: 'Mesa 1' },
-        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Mesa 2' },
-        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Mesa 3' },
-        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Mesa 4' },
-        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Mesa 5' },
-        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Mesa 6' }
+        { data: [65, 59, 80, 81, 56, 55, 40], label: 'Coordinador 1' },
+        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Coordinador 2' },
+        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Coordinador 3' },
+        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Coordinador 4' },
+        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Coordinador 5' },
+        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Coordinador 6' }
     ];
 
     // Doughnut

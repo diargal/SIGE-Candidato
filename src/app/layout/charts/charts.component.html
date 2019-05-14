@@ -1,23 +1,35 @@
 <div [@routerTransition]>
-    <app-page-header [heading]="namePage" [icon]="'fa-bar-chart-o'"></app-page-header>
-    <div class="row">
-        <div class="col col-sm-6">
-            <div class="card mb-3">
-                <div class="card-header">
-                    Estadísticas por puesto de votación
-                </div>
-                <div class="card-body">
-                    <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
-                        [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)"
-                        (chartClick)="chartClicked($event)">
-                    </canvas>
-                </div>
-                <div class="card-footer">
-                    <button class="btn btn-info btn-sm" (click)="randomize()">Actualizar</button>
-                </div>
-            </div>
+  <app-page-header [heading]="namePage" [icon]="'fa-bar-chart-o'"></app-page-header>
+  <div class="row">
+    <button class="btn btn-link">Reporte de gastos</button>
+    <button class="btn btn-link">Reporte de presupuestos</button>
+  </div>
+  <div class="row">
+    <div class="col col-sm-12">
+      <div class="card mb-3">
+        <div class="card-header">
+          Estadísticas por presupuesto
         </div>
-        <div class="col col-sm-6">
+        <div class="card-body">
+          <canvas
+            baseChart
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [legend]="barChartLegend"
+            [chartType]="barChartType"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)"
+          >
+          </canvas>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-info btn-sm" (click)="randomize()">Actualizar</button> &nbsp;
+          <button class="btn btn-success btn-sm" (click)="randomize()">Descargar DOCX</button>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="col col-sm-6">
             <div class="card mb-3">
                 <div class="card-header">
                     Doughnut Chart
@@ -29,63 +41,117 @@
                     </canvas>
                 </div>
             </div>
+        </div>-->
+  </div>
+
+  <div class="row">
+    <div class="col col-sm-12">
+      <div class="card mb-3">
+        <div class="card-header">
+          Detalles generales
         </div>
+        <div class="card-body">
+          <table class="table">
+            <thead class="thead-light">
+              <tr class="table-success" style="text-align: center">
+                <th scope="col">Localidad</th>
+                <th scope="col">Coordinador</th>
+                <th scope="col">Presupuesto</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="text-align: center"></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
-    <div class="row">
-        <div class="col col-sm-6">
-            <div class="card mb-3">
-                <div class="card-header">
-                    Radar Chart
-                </div>
-                <div class="card-body">
-                    <canvas baseChart height="150px" [datasets]="radarChartData" [labels]="radarChartLabels"
-                        [chartType]="radarChartType" (chartHover)="chartHovered($event)"
-                        (chartClick)="chartClicked($event)">
-                    </canvas>
-                </div>
-            </div>
+  </div>
+
+  <!--
+  <div class="row">
+    <div class="col col-sm-6">
+      <div class="card mb-3">
+        <div class="card-header">
+          Radar Chart
         </div>
-        <div class="col col-sm-6">
-            <div class="card mb-3">
-                <div class="card-header">
-                    Pie Chart
-                </div>
-                <div class="card-body">
-                    <canvas baseChart height="150px" [data]="pieChartData" [labels]="pieChartLabels"
-                        [chartType]="pieChartType" (chartHover)="chartHovered($event)"
-                        (chartClick)="chartClicked($event)">
-                    </canvas>
-                </div>
-            </div>
+        <div class="card-body">
+          <canvas
+            baseChart
+            height="150px"
+            [datasets]="radarChartData"
+            [labels]="radarChartLabels"
+            [chartType]="radarChartType"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)"
+          >
+          </canvas>
         </div>
+      </div>
     </div>
-    <div class="row">
-        <div class="col col-sm-6">
-            <div class="card mb-3">
-                <div class="card-header">
-                    Polar Area Chart
-                </div>
-                <div class="card-body">
-                    <canvas baseChart height="130px" [data]="polarAreaChartData" [labels]="polarAreaChartLabels"
-                        [legend]="polarAreaLegend" [chartType]="polarAreaChartType" (chartHover)="chartHovered($event)"
-                        (chartClick)="chartClicked($event)">
-                    </canvas>
-                </div>
-            </div>
+    <div class="col col-sm-6">
+      <div class="card mb-3">
+        <div class="card-header">
+          Pie Chart
         </div>
-        <div class="col col-sm-6">
-            <div class="card mb-3">
-                <div class="card-header">
-                    Line Chart
-                </div>
-                <div class="card-body">
-                    <canvas baseChart height="130" [datasets]="lineChartData" [labels]="lineChartLabels"
-                        [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend"
-                        [chartType]="lineChartType" (chartHover)="chartHovered($event)"
-                        (chartClick)="chartClicked($event)">
-                    </canvas>
-                </div>
-            </div>
+        <div class="card-body">
+          <canvas
+            baseChart
+            height="150px"
+            [data]="pieChartData"
+            [labels]="pieChartLabels"
+            [chartType]="pieChartType"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)"
+          >
+          </canvas>
         </div>
+      </div>
     </div>
+  </div>
+  <div class="row">
+    <div class="col col-sm-6">
+      <div class="card mb-3">
+        <div class="card-header">
+          Polar Area Chart
+        </div>
+        <div class="card-body">
+          <canvas
+            baseChart
+            height="130px"
+            [data]="polarAreaChartData"
+            [labels]="polarAreaChartLabels"
+            [legend]="polarAreaLegend"
+            [chartType]="polarAreaChartType"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)"
+          >
+          </canvas>
+        </div>
+      </div>
+    </div>
+    <div class="col col-sm-6">
+      <div class="card mb-3">
+        <div class="card-header">
+          Line Chart
+        </div>
+        <div class="card-body">
+          <canvas
+            baseChart
+            height="130"
+            [datasets]="lineChartData"
+            [labels]="lineChartLabels"
+            [options]="lineChartOptions"
+            [colors]="lineChartColors"
+            [legend]="lineChartLegend"
+            [chartType]="lineChartType"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)"
+          >
+          </canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+  -->
 </div>
