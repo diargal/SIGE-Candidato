@@ -12,31 +12,38 @@ export class ChartsComponent implements OnInit {
     @Input() public typePage: string;
     @Input() public dateReport: JSON;
 
+
     // bar chart
     public barChartOptions: any = {
         scaleShowVerticalLines: false,
         responsive: true
     };
     public barChartLabels: string[] = [
-        'Localidad 1',
-        'Localidad 2',
-        'Localidad 3',
-        'Localidad 4',
-        'Localidad 5',
-        'Localidad 6',
-        'Localidad 7'
+        'Coordinador 1',
+        'Coordinador 2',
+        'Coordinador 3',
+        'Coordinador 4'
 
     ];
     public barChartType: string;
     public barChartLegend: boolean;
 
     public barChartData: any[] = [
-        { data: [65, 59, 80, 81, 56, 55, 40], label: 'Coordinador 1' },
-        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Coordinador 2' },
-        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Coordinador 3' },
-        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Coordinador 4' },
-        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Coordinador 5' },
-        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Coordinador 6' }
+        { data: [65, 59, 80, 81, 56, 55, 40], label: 'Localidad 1' },
+        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Localidad 2' },
+        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Localidad 3' },
+        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Localidad 4' },
+        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Localidad 5' },
+        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Localidad 6' },
+        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Localidad 6' },
+        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Localidad 6' },
+        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Localidad 6' },
+
+        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Localidad 6' },
+        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Localidad 6' },
+        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Localidad 6' },
+        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Localidad 6' },
+        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Localidad 6' }
     ];
 
     // Doughnut
@@ -179,7 +186,7 @@ export class ChartsComponent implements OnInit {
         this.polarAreaChartType = 'polarArea';
         this.lineChartLegend = true;
         this.lineChartType = 'line';
-        console.log(this.dateReport);
+
 
     }
 }

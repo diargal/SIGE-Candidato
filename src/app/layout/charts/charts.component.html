@@ -4,7 +4,7 @@
     <div class="col col-sm-12">
       <div class="card mb-3">
         <div class="card-header">
-          <button *ngFor="let option of dateReport" class="btn btn-link active">{{option.name}}</button>
+          <button *ngFor="let option of dateReport" class="btn btn-link active">{{ option.name }}</button>
         </div>
       </div>
     </div>
@@ -17,9 +17,16 @@
           <strong> Estadísticas por presupuesto</strong>
         </div>
         <div class="card-body">
-          <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
-            [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)"
-            (chartClick)="chartClicked($event)">
+          <canvas
+            baseChart
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [legend]="barChartLegend"
+            [chartType]="barChartType"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)"
+          >
           </canvas>
         </div>
         <div class="card-footer">
@@ -48,15 +55,13 @@
     <div class="col col-sm-12">
       <div class="card mb-3">
         <div class="card-header">
-          <strong>Detalles generales</strong>
+          <strong>Detalles del reporte</strong>
         </div>
         <div class="card-body">
           <table class="table">
             <thead class="thead-light">
               <tr class="table-success" style="text-align: center">
-                <th scope="col">Localidad</th>
-                <th scope="col">Coordinador</th>
-                <th scope="col">Presupuesto</th>
+                <th *ngFor="let header of this.dateReport[1].dates">{{ header }}</th>
               </tr>
             </thead>
             <tbody>

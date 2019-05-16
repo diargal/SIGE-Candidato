@@ -15,7 +15,9 @@ export class ReportesCampaniaLogisticosComponent implements OnInit {
     },
     {
       'name': 'Reporte de presupuestos',
-      'dates': []
+      'dates': ['Localidad', 'Coordinador', 'Presupuesto'],
+      'series': 'Localidad',
+      'label': 'Coordinador'
     }
   ];
 
