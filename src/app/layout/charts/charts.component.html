@@ -1,31 +1,31 @@
 <div [@routerTransition]>
   <app-page-header [heading]="namePage" [icon]="'fa-bar-chart-o'"></app-page-header>
-  <div class="row">
-    <button class="btn btn-link">Reporte de gastos</button>
-    <button class="btn btn-link">Reporte de presupuestos</button>
+  <div class="row options">
+    <div class="col col-sm-12">
+      <div class="card mb-3">
+        <div class="card-header">
+          <button *ngFor="let option of dateReport" class="btn btn-link active">{{option.name}}</button>
+        </div>
+      </div>
+    </div>
   </div>
+
   <div class="row">
     <div class="col col-sm-12">
       <div class="card mb-3">
         <div class="card-header">
-          Estadísticas por presupuesto
+          <strong> Estadísticas por presupuesto</strong>
         </div>
         <div class="card-body">
-          <canvas
-            baseChart
-            [datasets]="barChartData"
-            [labels]="barChartLabels"
-            [options]="barChartOptions"
-            [legend]="barChartLegend"
-            [chartType]="barChartType"
-            (chartHover)="chartHovered($event)"
-            (chartClick)="chartClicked($event)"
-          >
+          <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+            [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)">
           </canvas>
         </div>
         <div class="card-footer">
           <button class="btn btn-info btn-sm" (click)="randomize()">Actualizar</button> &nbsp;
-          <button class="btn btn-success btn-sm" (click)="randomize()">Descargar DOCX</button>
+          <button class="btn btn-success btn-sm" (click)="randomize()">Descargar DOCX</button>&nbsp;
+          <button class="btn btn-secundary btn-sm" (click)="randomize()">Descargar XLSX</button>
         </div>
       </div>
     </div>
@@ -48,7 +48,7 @@
     <div class="col col-sm-12">
       <div class="card mb-3">
         <div class="card-header">
-          Detalles generales
+          <strong>Detalles generales</strong>
         </div>
         <div class="card-body">
           <table class="table">

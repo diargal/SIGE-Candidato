@@ -10,6 +10,7 @@ export class ChartsComponent implements OnInit {
 
     @Input() public namePage: string;
     @Input() public typePage: string;
+    @Input() public dateReport: JSON;
 
     // bar chart
     public barChartOptions: any = {
@@ -178,5 +179,7 @@ export class ChartsComponent implements OnInit {
         this.polarAreaChartType = 'polarArea';
         this.lineChartLegend = true;
         this.lineChartType = 'line';
+        console.log(this.dateReport);
+
     }
 }

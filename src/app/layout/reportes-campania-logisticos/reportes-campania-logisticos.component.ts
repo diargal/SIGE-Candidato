@@ -8,6 +8,16 @@ import { Component, OnInit } from '@angular/core';
 export class ReportesCampaniaLogisticosComponent implements OnInit {
 
   public typePage = 1;
+  public dateReport = [
+    {
+      'name': 'Reporte de gastos',
+      'dates': []
+    },
+    {
+      'name': 'Reporte de presupuestos',
+      'dates': []
+    }
+  ];
 
   constructor() { }
 
