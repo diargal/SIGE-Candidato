@@ -23,6 +23,7 @@ export class ChartsComponent implements OnInit {
     public headers: any;
     public secondChart = false;
     public dateSecondChart;
+    public optionSelected: number;
 
 
     // bar chart
@@ -31,10 +32,10 @@ export class ChartsComponent implements OnInit {
         responsive: true,
         scales: {
             xAxes: [{
-                barPercentage: 0.5,
+                barPercentage: 0.7,
                 barThickness: 'flex',
-                maxBarThickness: 20,
-                minBarLength: 2,
+                maxBarThickness: 30,
+                minBarLength: 5,
                 gridLines: {
                     offsetGridLines: true
                 }
@@ -141,6 +142,7 @@ export class ChartsComponent implements OnInit {
     ];
 
     public selectTittle(op: any) {
+        this.optionSelected = op.id;
         this.loadData(op);
         this.reportTittle = op.tittle;
         this.headers = op.dates;
@@ -234,4 +236,41 @@ export class ChartsComponent implements OnInit {
 
 
     }
+
+    downloadWord() {
+        const preHtml = '<html xmlns:o=\'urn:schemas-microsoft-com:office:office\' xmlns:w=\'urn:schemas-microsoft-com:office:word\' xmlns=\'http://www.w3.org/TR/REC-html40\'><head><meta charset=\'utf-8\'><title>Export HTML To Doc</title></head><body>';
+        const postHtml = '</body></html>';
+        const html = preHtml + document.getElementById('word').innerHTML + postHtml;
+
+        const blob = new Blob(['\ufeff', html], {
+            type: 'application/msword'
+        });
+        // Specify link url
+        const url = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(html);
+
+        // Specify file name
+        // let filename = filename?filename+'.doc':'document.doc';
+        const filename = this.reportTittle + '.doc';
+        // Create download link element
+        const downloadLink = document.createElement('a');
+
+        document.body.appendChild(downloadLink);
+
+        if (navigator.msSaveOrOpenBlob) {
+            navigator.msSaveOrOpenBlob(blob, filename);
+        } else {
+            // Create a link to the file
+            downloadLink.href = url;
+
+            // Setting the file name
+            downloadLink.download = filename;
+
+            // triggering the function
+            downloadLink.click();
+        }
+
+        document.body.removeChild(downloadLink);
+
+    }
+
 }

@@ -4,8 +4,14 @@
     <div class="col col-sm-12">
       <div class="card mb-3">
         <div class="card-header">
-          <button *ngFor="let option of dateReport" class="btn btn-link active"
-            (click)="selectTittle(option)">{{ option.name }}</button>
+          <button
+            *ngFor="let option of dateReport"
+            class="btn btn-link active"
+            [class.selected]="option.id === optionSelected"
+            (click)="selectTittle(option)"
+          >
+            {{ option.name }}
+          </button>
         </div>
       </div>
     </div>
@@ -16,17 +22,24 @@
       <div class="col col-sm-12">
         <div class="card mb-3">
           <div class="card-header">
-            <strong> {{reportTittle}}</strong>
+            <strong> {{ reportTittle }}</strong>
           </div>
-          <div class="card-body">
-            <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
-              [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)"
-              (chartClick)="chartClicked($event)">
+          <div class="card-body" id="word">
+            <canvas
+              baseChart
+              [datasets]="barChartData"
+              [labels]="barChartLabels"
+              [options]="barChartOptions"
+              [legend]="barChartLegend"
+              [chartType]="barChartType"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"
+            >
             </canvas>
           </div>
           <div class="card-footer">
             <button class="btn btn-info btn-sm" (click)="randomize()">Actualizar</button> &nbsp;
-            <button class="btn btn-success btn-sm" (click)="randomize()">Descargar DOCX</button>&nbsp;
+            <button class="btn btn-success btn-sm" (click)="downloadWord()">Descargar DOCX</button>&nbsp;
             <button class="btn btn-secundary btn-sm" (click)="randomize()">Descargar XLSX</button>
           </div>
         </div>
@@ -50,12 +63,19 @@
       <div class="col col-sm-12">
         <div class="card mb-3">
           <div class="card-header">
-            <strong> {{dateSecondChart[0].tittle}}</strong>
+            <strong> {{ dateSecondChart[0].tittle }}</strong>
           </div>
           <div class="card-body">
-            <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
-              [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)"
-              (chartClick)="chartClicked($event)">
+            <canvas
+              baseChart
+              [datasets]="barChartData"
+              [labels]="barChartLabels"
+              [options]="barChartOptions"
+              [legend]="barChartLegend"
+              [chartType]="barChartType"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"
+            >
             </canvas>
           </div>
           <div class="card-footer">

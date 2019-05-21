@@ -26,10 +26,18 @@ export class ConexionBDService {
   }
 
 
-  login(usuario: String, pass: String) {
-    const url = `${this.confiUrl}/loginAdmin/${usuario}/${pass}`;
+  login(correo: string, contrasena: string) {
+    const url = `${this.confiUrl}/api/auth/login/`;
+    const body: { correo: string, contrasena: string } = {
+      correo: correo,
+      contrasena: contrasena
+    };
+    return this.http.post(url, body, { headers: this.headers });
+  }
 
-    return this.http.get(url, { headers: this.headers });
+  getUser(): Observable<User> {
+    const url = `${this.confiUrl}/api/auth/login/`;
+    return this.http.get<User>(url, { headers: this.headers });
   }
 
   /*getToken(): Observable<User>{

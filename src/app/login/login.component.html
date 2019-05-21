@@ -11,20 +11,30 @@
             <div class="form-group">
               <input
                 type="text"
-                ng-model="name"
+                id="correo"
+                [(ngModel)]="user.correo"
+                name="correo"
                 class="form-control input-underline input-lg"
-                id=""
                 placeholder="{{ 'Email' | translate }}"
+                required
               />
             </div>
 
             <div class="form-group">
-              <input type="password" class="form-control input-underline input-lg" id="" placeholder="{{ 'Password' | translate }}" />
+              <input
+                type="password"
+                id="pass"
+                name="pass"
+                [(ngModel)]="user.pass"
+                class="form-control input-underline input-lg"
+                placeholder="{{ 'Password' | translate }}"
+                required
+              />
             </div>
           </div>
 
           <div class="buttonA">
-            <a class="btn btn-dark" [routerLink]="['/dashboard']" (click)="onLoggedin()">{{ 'Log in' | translate }}</a>
+            <a class="btn btn-dark" (click)="onLoggedin()">{{ 'Log in' | translate }}</a>
           </div>
 
           <div class="buttonB">
