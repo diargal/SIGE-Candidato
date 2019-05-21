@@ -11,27 +11,58 @@ export class ReportesCampaniaLocalidadesComponent implements OnInit {
   public dateReport = [
     {
       'name': 'Votos x líder',
-      'dates': []
+      'tittle': 'Estadística de votos x líder',
+      'dates': ['Localidad', 'Líder', 'N° votos'],
+      'series': 1,
+      'label': 0
     },
     {
-      'name': 'General P.V.',
-      'dates': []
+      'name': 'Votos independientes',
+      'tittle': 'Estadísticas de votos independientes',
+      'dates': ['Localidad', 'N° votos'],
+      'series': null,
+      'label': 0
+    },
+    {
+      'name': 'Reporte General P.V.',
+      'tittle': 'Estadística general de los puestos de votación en campaña',
+      'dates': ['Localidad', 'Puesto de votación', 'Mesa', 'N° votos'],
+      'series': 1,
+      'label': 0,
+      'tittle2': 'Estadística general de mesas x puesto de votación en campaña',
+      'series2': 2,
+      'label2': 1
     },
     {
       'name': 'P.V. x líder',
-      'dates': []
+      'tittle': 'Estadísticas de votos de líder x puesto de votación',
+      'dates': ['Localidad', 'Líder', 'Puesto de votación', 'Mesa', 'N° votos'],
+      'series': 1,
+      'label': 2,
+      'tittle2': 'Estadísticas de votos x líder',
+      'series2': 1,
+      'label2': 0
     },
     {
-      'name': 'Cumplimiento x líder',
-      'dates': []
+      'name': '% Cumplimiento x líder',
+      'tittle': 'Estadística de % cumplimiento por líderes',
+      'dates': ['Localidad', 'Líder', '% cumplimiento'],
+      'series': 1,
+      'label': 0
     },
     {
-      'name': 'Cumplimiento x localidad',
-      'dates': []
+      'name': '% Cumplimiento x localidad',
+      'tittle': 'Estadística de % cumplimiento por localidad',
+      'dates': ['Localidad', '% cumplimiento'],
+      'series': null,
+      'label': 0
     },
     {
       'name': 'Total votos x localidad',
-      'dates': []
+      'tittle': 'Estadística del total de votos x localidades',
+      'dates': ['Localidad', 'N° votos'],
+      'series': null,
+      'label': 0
     }
   ];
   constructor() { }

@@ -32,7 +32,7 @@ export class ConexionBDService {
     return this.http.get(url, { headers: this.headers });
   }
 
-  getToken(): Observable<User>{
+  /*getToken(): Observable<User>{
 
-  }
+  }*/
 }

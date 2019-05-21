@@ -4,39 +4,34 @@
     <div class="col col-sm-12">
       <div class="card mb-3">
         <div class="card-header">
-          <button *ngFor="let option of dateReport" class="btn btn-link active">{{ option.name }}</button>
+          <button *ngFor="let option of dateReport" class="btn btn-link active"
+            (click)="selectTittle(option)">{{ option.name }}</button>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col col-sm-12">
-      <div class="card mb-3">
-        <div class="card-header">
-          <strong> Estadísticas por presupuesto</strong>
-        </div>
-        <div class="card-body">
-          <canvas
-            baseChart
-            [datasets]="barChartData"
-            [labels]="barChartLabels"
-            [options]="barChartOptions"
-            [legend]="barChartLegend"
-            [chartType]="barChartType"
-            (chartHover)="chartHovered($event)"
-            (chartClick)="chartClicked($event)"
-          >
-          </canvas>
-        </div>
-        <div class="card-footer">
-          <button class="btn btn-info btn-sm" (click)="randomize()">Actualizar</button> &nbsp;
-          <button class="btn btn-success btn-sm" (click)="randomize()">Descargar DOCX</button>&nbsp;
-          <button class="btn btn-secundary btn-sm" (click)="randomize()">Descargar XLSX</button>
+  <div *ngIf="details">
+    <div class="row">
+      <div class="col col-sm-12">
+        <div class="card mb-3">
+          <div class="card-header">
+            <strong> {{reportTittle}}</strong>
+          </div>
+          <div class="card-body">
+            <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+              [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)">
+            </canvas>
+          </div>
+          <div class="card-footer">
+            <button class="btn btn-info btn-sm" (click)="randomize()">Actualizar</button> &nbsp;
+            <button class="btn btn-success btn-sm" (click)="randomize()">Descargar DOCX</button>&nbsp;
+            <button class="btn btn-secundary btn-sm" (click)="randomize()">Descargar XLSX</button>
+          </div>
         </div>
       </div>
-    </div>
-    <!-- <div class="col col-sm-6">
+      <!-- <div class="col col-sm-6">
             <div class="card mb-3">
                 <div class="card-header">
                     Doughnut Chart
@@ -49,25 +44,47 @@
                 </div>
             </div>
         </div>-->
-  </div>
+    </div>
 
-  <div class="row">
-    <div class="col col-sm-12">
-      <div class="card mb-3">
-        <div class="card-header">
-          <strong>Detalles del reporte</strong>
+    <div *ngIf="secondChart" class="row">
+      <div class="col col-sm-12">
+        <div class="card mb-3">
+          <div class="card-header">
+            <strong> {{dateSecondChart[0].tittle}}</strong>
+          </div>
+          <div class="card-body">
+            <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+              [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)">
+            </canvas>
+          </div>
+          <div class="card-footer">
+            <button class="btn btn-info btn-sm" (click)="randomize()">Actualizar</button> &nbsp;
+            <button class="btn btn-success btn-sm" (click)="randomize()">Descargar DOCX</button>&nbsp;
+            <button class="btn btn-secundary btn-sm" (click)="randomize()">Descargar XLSX</button>
+          </div>
         </div>
-        <div class="card-body">
-          <table class="table">
-            <thead class="thead-light">
-              <tr class="table-success" style="text-align: center">
-                <th *ngFor="let header of this.dateReport[1].dates">{{ header }}</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr style="text-align: center"></tr>
-            </tbody>
-          </table>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col col-sm-12">
+        <div class="card mb-3">
+          <div class="card-header">
+            <strong>Detalles del reporte</strong>
+          </div>
+          <div class="card-body">
+            <table class="table">
+              <thead class="thead-light">
+                <tr class="table-success" style="text-align: center">
+                  <th *ngFor="let header of headers">{{ header }}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="text-align: center"></tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>

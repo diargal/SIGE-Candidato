@@ -7,7 +7,6 @@ import { LayoutRoutingModule } from './layout-routing.module';
 import { LayoutComponent } from './layout.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HeaderComponent } from './components/header/header.component';
-import { AdministrarEventoComponent } from './administrar-evento/administrar-evento.component';
 import { AdministrarGastosComponent } from './administrar-gastos/administrar-gastos.component';
 import { AdministrarPresupuestoComponent } from './administrar-presupuesto/administrar-presupuesto.component';
 import { AdministrarVotantesComponent } from './administrar-votantes/administrar-votantes.component';
@@ -15,6 +14,8 @@ import { AdministrarLideresComponent } from './administrar-lideres/administrar-l
 import { ReportesCampaniaLocalidadesModule } from './reportes-campania-localidades/reportes-campania-localidades.module';
 import { ReportesDiaDModule } from './reportes-dia-d/reportes-dia-d.module';
 import { ReportesCampaniaLogisticosModule } from './reportes-campania-logisticos/reportes-campania-logisticos.module';
+import { AdministrarEventoModule } from './administrar-evento/administrar-evento.module';
+import { PageHeaderModule } from '../shared';
 
 @NgModule({
     imports: [
@@ -24,16 +25,17 @@ import { ReportesCampaniaLogisticosModule } from './reportes-campania-logisticos
         NgbDropdownModule,
         ReportesCampaniaLocalidadesModule,
         ReportesDiaDModule,
-        ReportesCampaniaLogisticosModule
+        ReportesCampaniaLogisticosModule,
+        AdministrarEventoModule,
+        PageHeaderModule
     ],
     declarations: [
         LayoutComponent,
         SidebarComponent,
         HeaderComponent,
-        AdministrarEventoComponent,
         AdministrarGastosComponent,
+        AdministrarLideresComponent,
         AdministrarPresupuestoComponent,
-        AdministrarVotantesComponent,
-        AdministrarLideresComponent]
+        AdministrarVotantesComponent]
 })
 export class LayoutModule { }

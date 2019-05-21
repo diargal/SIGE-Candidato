@@ -10,14 +10,17 @@ export class ReportesCampaniaLogisticosComponent implements OnInit {
   public typePage = 1;
   public dateReport = [
     {
-      'name': 'Reporte de gastos',
-      'dates': []
-    },
-    {
       'name': 'Reporte de presupuestos',
+      'tittle': 'Estadísticas sobre los presupuestos',
       'dates': ['Localidad', 'Coordinador', 'Presupuesto'],
-      'series': 'Localidad',
-      'label': 'Coordinador'
+      'series': 0,
+      'label': 1
+    }, {
+      'name': 'Reporte de gastos',
+      'tittle': 'Estadísticas sobre gastos',
+      'dates': ['Clasificación', 'Nombre del gasto', 'Localidad', 'Valor'],
+      'series': 0,
+      'label': 2
     }
   ];
 

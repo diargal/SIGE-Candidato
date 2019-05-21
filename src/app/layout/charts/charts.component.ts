@@ -8,43 +8,44 @@ import { routerTransition } from '../../router.animations';
 })
 export class ChartsComponent implements OnInit {
 
+    constructor() { }
+
     @Input() public namePage: string;
     @Input() public typePage: string;
     @Input() public dateReport: JSON;
+
+    public reportTittle: string;
+    public details = false;
+    public lineChartLegend: boolean;
+    public lineChartType: string;
+    public pieChartData: number[] = [300, 500, 100];
+    public pieChartType: string;
+    public headers: any;
+    public secondChart = false;
+    public dateSecondChart;
 
 
     // bar chart
     public barChartOptions: any = {
         scaleShowVerticalLines: false,
-        responsive: true
+        responsive: true,
+        scales: {
+            xAxes: [{
+                barPercentage: 0.5,
+                barThickness: 'flex',
+                maxBarThickness: 20,
+                minBarLength: 2,
+                gridLines: {
+                    offsetGridLines: true
+                }
+            }]
+        },
     };
-    public barChartLabels: string[] = [
-        'Coordinador 1',
-        'Coordinador 2',
-        'Coordinador 3',
-        'Coordinador 4'
-
-    ];
+    public barChartLabels = new Array();
     public barChartType: string;
     public barChartLegend: boolean;
 
-    public barChartData: any[] = [
-        { data: [65, 59, 80, 81, 56, 55, 40], label: 'Localidad 1' },
-        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Localidad 2' },
-        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Localidad 3' },
-        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Localidad 4' },
-        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Localidad 5' },
-        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Localidad 6' },
-        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Localidad 6' },
-        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Localidad 6' },
-        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Localidad 6' },
-
-        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Localidad 6' },
-        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Localidad 6' },
-        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Localidad 6' },
-        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Localidad 6' },
-        { data: [28, 48, 40, 19, 86, 27, 90], label: 'Localidad 6' }
-    ];
+    public barChartData = new Array();
 
     // Doughnut
     public doughnutChartLabels: string[] = [
@@ -77,8 +78,6 @@ export class ChartsComponent implements OnInit {
         'In-Store Sales',
         'Mail Sales'
     ];
-    public pieChartData: number[] = [300, 500, 100];
-    public pieChartType: string;
 
     // PolarArea
     public polarAreaChartLabels: string[] = [
@@ -140,8 +139,55 @@ export class ChartsComponent implements OnInit {
             pointHoverBorderColor: 'rgba(148,159,177,0.8)'
         }
     ];
-    public lineChartLegend: boolean;
-    public lineChartType: string;
+
+    public selectTittle(op: any) {
+        this.loadData(op);
+        this.reportTittle = op.tittle;
+        this.headers = op.dates;
+        this.details = true;
+        this.secondChart = false;
+        if (op.tittle2) {
+            this.secondChart = true;
+            this.dateSecondChart = new Array(
+                {
+                    'tittle': op.tittle2,
+                    'series': op.series2,
+                    'label': op.label2
+                }
+            );
+        }
+    }
+
+    public loadData(array: any) {
+        const serie = array.series == null ? 'Cantidad' : array.dates[array.series];
+        const label = array.dates[array.label];
+
+        this.barChartData = new Array({ data: [65, 59, 80, 81, 56, 55, 40], label: serie + ' 1' },
+            { data: [28, 48, 40, 19, 86, 27, 90], label: serie + ' 2' },
+            { data: [28, 48, 40, 19, 86, 27, 90], label: serie + ' 3' },
+            { data: [28, 48, 40, 19, 86, 27, 90], label: serie + ' 4' },
+            { data: [28, 48, 40, 19, 86, 27, 90], label: serie + ' 5' },
+            { data: [28, 48, 40, 19, 86, 27, 90], label: serie + ' 6' });
+
+        const size = this.barChartLabels.length;
+
+        this.barChartLabels.push(
+            label + ' 1',
+            label + ' 2',
+            label + ' 3',
+            label + ' 4',
+            label + ' 5',
+            label + ' 6'
+        );
+        if (size !== 0) {
+            for (let i = 0; i < size; i++) {
+                this.barChartLabels.shift();
+            }
+        }
+        // console.log(this.barChartLabels);
+        console.log('datos:', array); console.log('Serie: ' + serie); console.log('Label:', label);
+
+    }
 
     // events
     public chartClicked(e: any): void {
@@ -165,6 +211,7 @@ export class ChartsComponent implements OnInit {
         ];
         const clone = JSON.parse(JSON.stringify(this.barChartData));
         clone[0].data = data;
+
         this.barChartData = clone;
         /**
          * (My guess), for Angular to recognize the change in the dataset
@@ -173,8 +220,6 @@ export class ChartsComponent implements OnInit {
          * assign it;
          */
     }
-
-    constructor() { }
 
     ngOnInit() {
         this.barChartType = 'bar';
