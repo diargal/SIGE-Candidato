@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { routerTransition } from '../router.animations';
 import { ConexionBDService } from '../services/conexion-bd.service';
 import { TokenService } from '../services/token.service';
+import Swal from 'sweetalert2';
+import { AuthGuard } from '../shared';
 
 @Component({
     selector: 'app-login',
@@ -12,9 +14,10 @@ import { TokenService } from '../services/token.service';
 })
 export class LoginComponent implements OnInit {
     constructor(
-        public router: Router,
-        public connection: ConexionBDService,
-        public tokenService: TokenService
+        private router: Router,
+        private connection: ConexionBDService,
+        private tokenService: TokenService,
+        private auth: AuthGuard
     ) { }
 
     private user: { correo: string, pass: string } = {
@@ -28,14 +31,31 @@ export class LoginComponent implements OnInit {
         this.connection.login(this.user.correo, this.user.pass).subscribe(
             data => {
                 this.savedUser(data);
+            },
+            err => {
+                Swal.fire('Oppps!', 'Se perdió la conexión con la base de datos. Vuelva a intentarlo.', 'error');
             }
         );
 
     }
 
     savedUser(info: any) {
-        console.log(info);
-        this.tokenService.setToken(info.accessToken);
-        console.log(this.tokenService.getToken);
+        if (info.auth) {
+            this.tokenService.token = info.accessToken;
+            this.connection.getUser().subscribe(
+                data => {
+                    if (data.type === 'candidato') {
+                        this.tokenService.user = data;
+                        localStorage.setItem('isLoggedin', 'true');
+                        this.auth.canActivate();
+                        this.router.navigate(['/dashboard']);
+                    } else {
+                        Swal.fire('Error de ingreso', 'Usted no es un candidato.', 'error');
+                    }
+                }
+            );
+        } else {
+            Swal.fire('Credenciales incorrectas', 'Verifique el correo o la contraseña.', 'error');
+        }
     }
 }

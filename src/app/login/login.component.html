@@ -6,7 +6,7 @@
       </div>
       <div class="container">
         <h1>Bienvenido!</h1>
-        <form role="form">
+        <form role="form" (ngSubmit)="onLoggedin()">
           <div class="form-content">
             <div class="form-group">
               <input
@@ -34,7 +34,7 @@
           </div>
 
           <div class="buttonA">
-            <a class="btn btn-dark" (click)="onLoggedin()">{{ 'Log in' | translate }}</a>
+            <button type="submit" class="btn btn-dark">{{ 'Log in' | translate }}</button>
           </div>
 
           <div class="buttonB">

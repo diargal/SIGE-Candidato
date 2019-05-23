@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { TokenService } from './token.service';
 import { Observable } from 'rxjs';
 import { User } from '../clases/user';
@@ -17,12 +17,15 @@ export class ConexionBDService {
     public http: HttpClient,
     public token: TokenService
   ) {
-
-    this.headers = new Headers({
-      'Content-Type': 'application/json; charset=utf-8',
-      'x-acces-token': token.token
-    });
+    this.pred(token.token);
     this.confiUrl = 'http://192.168.5.73:3000';
+  }
+
+  private pred(token: string) {
+    this.headers = new HttpHeaders({
+      'Content-Type': 'application/json; charset=utf-8',
+      'x-access-token': token
+    });
   }
 
 
@@ -36,7 +39,9 @@ export class ConexionBDService {
   }
 
   getUser(): Observable<User> {
-    const url = `${this.confiUrl}/api/auth/login/`;
+    this.pred(this.token.token);
+    const url = `${this.confiUrl}/api/user/`;
+
     return this.http.get<User>(url, { headers: this.headers });
   }
 
