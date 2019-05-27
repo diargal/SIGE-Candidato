@@ -12,12 +12,12 @@ import { FormsModule } from '@angular/forms';
 @NgModule({
     imports: [
         CommonModule,
+        FormsModule,
         BrowserModule,
         BrowserAnimationsModule,
         HttpClientModule,
         LanguageTranslationModule,
-        AppRoutingModule,
-        FormsModule
+        AppRoutingModule
     ],
     declarations: [AppComponent],
     providers: [AuthGuard],
