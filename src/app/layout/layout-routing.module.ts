@@ -25,13 +25,13 @@ const routes: Routes = [
             { path: 'components', loadChildren: './bs-component/bs-component.module#BsComponentModule' },
             { path: 'blank-page', loadChildren: './blank-page/blank-page.module#BlankPageModule' },
             { path: 'reports.dia.d', component: ReportesDiaDComponent },
-            { path: 'reports.campania.logistico', component: ReportesCampaniaLogisticosComponent },
-            { path: 'reports.campania.localidad', component: ReportesCampaniaLocalidadesComponent },
-            { path: 'administrar.eventos', component: AdministrarEventoComponent },
-            { path: 'administrar.gastos', component: AdministrarGastosComponent },
-            { path: 'administrar.presupuesto', component: AdministrarPresupuestoComponent },
-            { path: 'administrar.votantes', component: AdministrarVotantesComponent },
-            { path: 'administrar.lideres', component: AdministrarLideresComponent }
+            { path: 'reports/campania/logistico', component: ReportesCampaniaLogisticosComponent },
+            { path: 'reports/campania/localidad', component: ReportesCampaniaLocalidadesComponent },
+            { path: 'administrar/eventos', component: AdministrarEventoComponent },
+            { path: 'administrar/gastos', component: AdministrarGastosComponent },
+            { path: 'administrar/presupuesto', component: AdministrarPresupuestoComponent },
+            { path: 'administrar/votantes', component: AdministrarVotantesComponent },
+            { path: 'administrar/lideres', component: AdministrarLideresComponent }
         ]
     }
 ];

@@ -15,31 +15,31 @@
       <li class="nested" [class.expand]="showMenu === 'expenses'">
         <ul class="submenu">
           <li>
-            <a [routerLink]="['/administrar.eventos']" [routerLinkActive]="['router-link-active']">
+            <a [routerLink]="['/administrar/eventos']" [routerLinkActive]="['router-link-active']">
               <i class="far fa-fw fa-calendar-alt"></i>&nbsp;
               <span>{{ 'Eventos' | translate }}</span>
             </a>
           </li>
           <li>
-            <a [routerLink]="['/administrar.gastos']" [routerLinkActive]="['router-link-active']">
+            <a [routerLink]="['/administrar/gastos']" [routerLinkActive]="['router-link-active']">
               <i class="fa fa-fw fa-percent"></i>&nbsp;
               <span>{{ 'Gastos' | translate }}</span>
             </a>
           </li>
           <li>
-            <a [routerLink]="['/administrar.presupuesto']" [routerLinkActive]="['router-link-active']">
+            <a [routerLink]="['/administrar/presupuesto']" [routerLinkActive]="['router-link-active']">
               <i class="fa fa-fw fa-money"></i>&nbsp;
               <span>{{ 'Budget' | translate }}</span>
             </a>
           </li>
           <li>
-            <a [routerLink]="['/administrar.votantes']" [routerLinkActive]="['router-link-active']">
+            <a [routerLink]="['/administrar/votantes']" [routerLinkActive]="['router-link-active']">
               <i class="fas fa-fw fa-user-check"></i>&nbsp;
               <span>{{ 'Votantes' | translate }}</span>
             </a>
           </li>
           <li>
-            <a [routerLink]="['/administrar.lideres']" [routerLinkActive]="['router-link-active']">
+            <a [routerLink]="['/administrar/lideres']" [routerLinkActive]="['router-link-active']">
               <i class="fa fa-fw fa-fist-raised"></i>&nbsp;
               <span>{{ 'Líderes' | translate }}</span>
             </a>
@@ -65,13 +65,13 @@
           <li class="nested" *ngIf="showSubMenu === 'campania'">
             <ul class="submenu">
               <li>
-                <a [routerLink]="['/reports.campania.logistico']" [routerLinkActive]="['router-link-active']">
+                <a [routerLink]="['/reports/campania/logistico']" [routerLinkActive]="['router-link-active']">
                   <i class="fab fa-fw fa-angellist"></i>&nbsp;
                   <span>{{ 'Logísticos' | translate }}</span>
                 </a>
               </li>
               <li>
-                <a [routerLink]="['/reports.campania.localidad']" [routerLinkActive]="['router-link-active']">
+                <a [routerLink]="['/reports/campania/localidad']" [routerLinkActive]="['router-link-active']">
                   <i class="fas fa-fw fa-map-marked-alt"></i>&nbsp;
                   <span>{{ 'Localidades' | translate }}</span>
                 </a>
