@@ -46,9 +46,7 @@ export class LoginComponent implements OnInit {
                 data => {
                     if (data.type === 'candidato') {
                         this.tokenService.user = data;
-                        localStorage.setItem('isLoggedin', 'true');
-                        this.auth.canActivate();
-                        this.router.navigate(['/dashboard']);
+                        this.activeSession();
                     } else {
                         Swal.fire('Error de ingreso', 'Usted no es un candidato.', 'error');
                     }
@@ -57,5 +55,11 @@ export class LoginComponent implements OnInit {
         } else {
             Swal.fire('Credenciales incorrectas', 'Verifique el correo o la contraseña.', 'error');
         }
+    }
+
+    activeSession() {
+        localStorage.setItem('isLoggedin', 'true');
+        this.auth.canActivate();
+        this.router.navigate(['/dashboard']);
     }
 }

@@ -15,15 +15,15 @@ export class EventService {
 
   constructor(private http: HttpClient, public dataService: DataSharingService) { }
 
-  postEvent(pEvent: Event, pGuests: User[], pCosts: Cost[], pResponsible: User): Observable<Event>{
-    let httpOptions = {
+  postEvent(pEvent: Event, pGuests: User[], pCosts: Cost[], pResponsible: User): Observable<Event> {
+    const httpOptions = {
       headers: new HttpHeaders({
-        'Content-Type':  'application/json',
+        'Content-Type': 'application/json',
         'x-access-token': this.dataService.token
       })
     };
 
-    let body = {
+    const body = {
       event: pEvent,
       guests: pGuests,
       costs: pCosts,
@@ -34,16 +34,16 @@ export class EventService {
   }
 
   getEvents(pUser: User): Observable<Event[]> {
-    let httpOptions = {
+    const httpOptions = {
       headers: new HttpHeaders({
-        'Content-Type':  'application/json',
+        'Content-Type': 'application/json',
         'x-access-token': this.dataService.token
       })
     };
 
-    let body = {
+    const body = {
       user: pUser
-    }
+    };
 
     return this.http.post<Event[]>(this.urlGetEvents, body, httpOptions);
   }

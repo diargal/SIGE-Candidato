@@ -9,9 +9,6 @@ import { User } from '../clases/user';
 })
 export class ConexionBDService {
 
-  private confiUrl;
-  private headers;
-
 
   constructor(
     public http: HttpClient,
@@ -20,6 +17,10 @@ export class ConexionBDService {
     this.pred(token.token);
     this.confiUrl = 'http://192.168.5.73:3000';
   }
+
+  private confiUrl;
+  private headers;
+f;
 
   private pred(token: string) {
     this.headers = new HttpHeaders({
@@ -44,8 +45,4 @@ export class ConexionBDService {
 
     return this.http.get<User>(url, { headers: this.headers });
   }
-
-  /*getToken(): Observable<User>{
-
-  }*/
 }
