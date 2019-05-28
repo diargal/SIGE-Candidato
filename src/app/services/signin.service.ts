@@ -9,20 +9,20 @@ import { User } from '../models/user';
   providedIn: 'root'
 })
 export class SigninService {
-  
-  private tokenUrl: string = 'http://192.168.5.73:3000/api/auth/login'
-  private signinUrl: string = 'http://192.168.5.73:3000/api/user'
+
+  private tokenUrl = 'http://192.168.5.73:3000/api/auth/login';
+  private signinUrl = 'http://192.168.5.73:3000/api/user';
   constructor(
     private http: HttpClient
   ) { }
 
   getToken(pEmail: string, pPassword: string): Observable<string> {
-    let body ={
+    const body = {
       correo: pEmail,
       contrasena: pPassword
     };
 
-    let httpOptions = {
+    const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
       })
@@ -31,9 +31,9 @@ export class SigninService {
     return this.http.post<string>(this.tokenUrl, body, httpOptions);
   }
 
-  getUser(token: string): Observable<User>{
+  getUser(token: string): Observable<User> {
     console.log('Getting user with token: ' + token);
-    let httpOptions = {
+    const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
         'x-access-token': token

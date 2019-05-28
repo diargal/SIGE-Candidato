@@ -24,7 +24,7 @@ const routes: Routes = [
             { path: 'grid', loadChildren: './grid/grid.module#GridModule' },
             { path: 'components', loadChildren: './bs-component/bs-component.module#BsComponentModule' },
             { path: 'blank-page', loadChildren: './blank-page/blank-page.module#BlankPageModule' },
-            { path: 'reports.dia.d', component: ReportesDiaDComponent },
+            { path: 'reports/diad', component: ReportesDiaDComponent },
             { path: 'reports/campania/logistico', component: ReportesCampaniaLogisticosComponent },
             { path: 'reports/campania/localidad', component: ReportesCampaniaLocalidadesComponent },
             { path: 'administrar/eventos', component: AdministrarEventoComponent },
