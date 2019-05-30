@@ -29,9 +29,10 @@
     "chart.js": "2.7.3",
     "core-js": "2.5.7",
     "font-awesome": "4.7.0",
+    "jspdf": "^1.5.3",
     "ng2-charts": "1.6.0",
     "rxjs": "6.3.3",
-    "sweetalert2": "^8.11.5",
+    "sweetalert2": "^8.11.6",
     "yarn": "1.12.1",
     "zone.js": "0.8.26"
   },
