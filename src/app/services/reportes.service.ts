@@ -14,6 +14,12 @@ export class ReportesService {
   ) {
   }
 
+  getDataReport(SEMIR0UTE: string) {
+    const url = `${URL}/api/candidato/${SEMIR0UTE}`;
+    return this.http.get(url, { headers: pred(this.token.token) });
+  }
+
+  /*
   getDataCampLogPresupuesto() {
     const url = `${URL}/api/candidato/getReportePresupuesto/`;
     return this.http.get(url, { headers: pred(this.token.token) });
@@ -23,4 +29,5 @@ export class ReportesService {
     const url = `${URL}/api/candidato/getReporteGasto/`;
     return this.http.get(url, { headers: pred(this.token.token) });
   }
+  */
 }

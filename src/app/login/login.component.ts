@@ -28,13 +28,15 @@ export class LoginComponent implements OnInit {
     ngOnInit() { }
 
     onLoggedin() {
+        this.activeSession();
         this.connection.login(this.user.correo, this.user.pass).subscribe(
             data => {
+                console.log(data);
+
                 this.savedUser(data);
             },
             err => {
                 console.log(err);
-
                 Swal.fire('Oppps!', 'Se perdió la conexión con la base de datos. Vuelva a intentarlo.', 'error');
             }
         );
@@ -61,6 +63,7 @@ export class LoginComponent implements OnInit {
 
     activeSession() {
         localStorage.setItem('isLoggedin', 'true');
+        localStorage.setItem('qwerty', this.tokenService.token);
         this.auth.canActivate();
         this.router.navigate(['/dashboard']);
     }

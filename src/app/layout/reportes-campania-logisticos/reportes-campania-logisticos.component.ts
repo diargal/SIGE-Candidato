@@ -13,22 +13,20 @@ export class ReportesCampaniaLogisticosComponent implements OnInit {
   public dateReport = [
     {
       'id': 1,
-      'route': 'getDataCampLogPresupuesto',
+      'route': 'getReportePresupuesto',
       'name': 'Reporte de presupuestos',
       'tittle': 'Estadísticas sobre los presupuestos',
       'dates': ['Localidad', 'Coordinador', 'Presupuesto'],
       'series': 0,
-      'label': 1,
-      'data': this.getDataPresupuesto()
+      'label': 1
     }, {
       'id': 2,
-      'route': 'getDataCampLogGastos',
+      'route': 'getReporteGasto',
       'name': 'Reporte de gastos',
       'tittle': 'Estadísticas sobre gastos',
       'dates': ['Clasificación', 'Nombre del gasto', 'Localidad', 'Valor'],
       'series': 0,
-      'label': 2,
-      'data': this.getDataGasto()
+      'label': 2
     }
   ];
 
@@ -37,22 +35,6 @@ export class ReportesCampaniaLogisticosComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-  }
-
-  getDataPresupuesto() {
-    this.conexion.getDataCampLogPresupuesto().subscribe(
-      data => {
-        console.log(data);
-      }
-    );
-  }
-
-  getDataGasto() {
-    this.conexion.getDataCampLogGatos().subscribe(
-      data => {
-        console.log(data);
-      }
-    );
   }
 
 }

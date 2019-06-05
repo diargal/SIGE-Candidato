@@ -12,6 +12,7 @@ export class ReportesDiaDComponent implements OnInit {
   public dateReport = [
     {
       'id': 1,
+      'route': '',
       'name': 'Reporte general P.V.',
       'tittle': 'Estadística general de puestos de votación (Pos-campaña)',
       'dates': ['Localidad', 'Puesto de votación', 'Mesa', 'N° votos'],
@@ -20,6 +21,7 @@ export class ReportesDiaDComponent implements OnInit {
     },
     {
       'id': 2,
+      'route': '',
       'name': 'Votos x mesa',
       'tittle': 'Estadistica general de mesas x puestos de votación (Pos-campaña)',
       'dates': ['Localidad', 'Puesto de votación', 'Mesa', 'N° votos'],
@@ -28,6 +30,7 @@ export class ReportesDiaDComponent implements OnInit {
     },
     {
       'id': 3,
+      'route': '',
       'name': 'Votos x localidades',
       'tittle': 'Estadistica general por localidades (Pos-campaña)',
       'dates': ['Localidad', 'Puesto de votación', 'Mesa', 'N° votos'],

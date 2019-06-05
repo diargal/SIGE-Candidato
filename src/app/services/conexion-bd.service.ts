@@ -1,12 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { User } from '../clases/user';
 import { DataSharingService } from './data-sharing.service';
+import { User } from '../models/user';
 
-export const URL = 'http://192.168.5.73:3000';
+// export const URL = 'http://192.168.5.73:3000';
+export const URL = 'http://206.189.202.242:3000';
 
 export function pred(token: string) {
+  /*
+  Si token es vacío, tomo el valor del token guardado en session. De lo contrario, lo dejo igual */
+  token = token.length === 0 ? localStorage.getItem('qwerty') : token;
+  /*
+  Si el token en session no existe, entonces le otorgo vacío */
+  token = token ? token : '';
+
   const headers = new HttpHeaders({
     'Content-Type': 'application/json; charset=utf-8',
     'x-access-token': token

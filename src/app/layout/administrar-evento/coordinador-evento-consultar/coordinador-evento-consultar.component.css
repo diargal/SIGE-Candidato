@@ -1,20 +1,14 @@
-.superContainer {
-    margin-bottom: 5%;
-    width: 100% !important;
-    padding: 3%;
-}
-
 .container-tittle {
-    width: 100%;
-    position: relative;
+  width: 100%;
+  position: relative;
 }
 
 .title {
-    width: auto;
-    float: left;
+  width: auto;
+  float: left;
 }
 
 .search {
-    width: 30%;
-    float: right;
+  width: 30%;
+  float: right;
 }

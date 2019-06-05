@@ -11,6 +11,7 @@ export class ReportesCampaniaLocalidadesComponent implements OnInit {
   public dateReport = [
     {
       'id': 1,
+      'route': 'getReporteVotosLider',
       'name': 'Votos x líder',
       'tittle': 'Estadística de votos x líder',
       'dates': ['Localidad', 'Líder', 'N° votos'],
@@ -19,6 +20,7 @@ export class ReportesCampaniaLocalidadesComponent implements OnInit {
     },
     {
       'id': 2,
+      'route': 'getReporteVotosIndependientes',
       'name': 'Votos independientes',
       'tittle': 'Estadísticas de votos independientes',
       'dates': ['Localidad', 'N° votos'],
@@ -27,6 +29,7 @@ export class ReportesCampaniaLocalidadesComponent implements OnInit {
     },
     {
       'id': 3,
+      'route': 'getReporteGeneral',
       'name': 'Reporte General P.V.',
       'tittle': 'Estadística general de los puestos de votación en campaña',
       'dates': ['Localidad', 'Puesto de votación', 'Mesa', 'N° votos'],
@@ -38,6 +41,7 @@ export class ReportesCampaniaLocalidadesComponent implements OnInit {
     },
     {
       'id': 4,
+      'route': '',
       'name': 'P.V. x líder',
       'tittle': 'Estadísticas de votos de líder x puesto de votación',
       'dates': ['Localidad', 'Líder', 'Puesto de votación', 'Mesa', 'N° votos'],
@@ -49,6 +53,7 @@ export class ReportesCampaniaLocalidadesComponent implements OnInit {
     },
     {
       'id': 5,
+      'route': '',
       'name': '% Cumplimiento x líder',
       'tittle': 'Estadística de % cumplimiento por líderes',
       'dates': ['Localidad', 'Líder', '% cumplimiento'],
@@ -57,6 +62,7 @@ export class ReportesCampaniaLocalidadesComponent implements OnInit {
     },
     {
       'id': 6,
+      'route': '',
       'name': '% Cumplimiento x localidad',
       'tittle': 'Estadística de % cumplimiento por localidad',
       'dates': ['Localidad', '% cumplimiento'],
@@ -65,6 +71,7 @@ export class ReportesCampaniaLocalidadesComponent implements OnInit {
     },
     {
       'id': 7,
+      'route': '',
       'name': 'Total votos x localidad',
       'tittle': 'Estadística del total de votos x localidades',
       'dates': ['Localidad', 'N° votos'],
