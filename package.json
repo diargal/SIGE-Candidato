@@ -30,9 +30,10 @@
     "core-js": "2.5.7",
     "font-awesome": "4.7.0",
     "jspdf": "^1.5.3",
+    "jspdf-autotable": "^3.1.1",
     "ng2-charts": "1.6.0",
     "rxjs": "6.3.3",
-    "sweetalert2": "^8.11.6",
+    "sweetalert2": "^8.11.7",
     "yarn": "1.12.1",
     "zone.js": "0.8.26"
   },

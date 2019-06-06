@@ -4,8 +4,12 @@
     <div class="col col-sm-12">
       <div class="card mb-3">
         <div class="card-header">
-          <button *ngFor="let option of dateReport" class="btn btn-link active"
-            [class.selected]="option.id === optionSelected" (click)="selectTittle(option)">
+          <button
+            *ngFor="let option of dateReport"
+            class="btn btn-link active"
+            [class.selected]="option.id === optionSelected"
+            (click)="selectTittle(option)"
+          >
             {{ option.name }}
           </button>
         </div>
@@ -21,9 +25,16 @@
             <strong> {{ reportTittle }}</strong>
           </div>
           <div class="card-body" id="word">
-            <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
-              [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)"
-              (chartClick)="chartClicked($event)">
+            <canvas
+              baseChart
+              [datasets]="barChartData"
+              [labels]="barChartLabels"
+              [options]="barChartOptions"
+              [legend]="barChartLegend"
+              [chartType]="barChartType"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"
+            >
             </canvas>
           </div>
           <div class="card-footer">
@@ -55,9 +66,16 @@
             <strong> {{ dateSecondChart[0].tittle }}</strong>
           </div>
           <div class="card-body">
-            <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
-              [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)"
-              (chartClick)="chartClicked($event)">
+            <canvas
+              baseChart
+              [datasets]="barChartData"
+              [labels]="barChartLabels"
+              [options]="barChartOptions"
+              [legend]="barChartLegend"
+              [chartType]="barChartType"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"
+            >
             </canvas>
           </div>
           <div class="card-footer">
@@ -76,14 +94,16 @@
             <strong>Detalles del reporte</strong>
           </div>
           <div class="card-body">
-            <table class="table">
+            <table id="my-table" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
               <thead class="thead-light">
                 <tr class="table-success" style="text-align: center">
                   <th *ngFor="let header of headers">{{ header }}</th>
                 </tr>
               </thead>
               <tbody>
-                <tr style="text-align: center"></tr>
+                <tr *ngFor="let item of lista" style="text-align: center">
+                  <td *ngFor="let header of headers">Hola</td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -91,6 +111,8 @@
       </div>
     </div>
   </div>
+
+  <script></script>
 
   <!--
   <div class="row">

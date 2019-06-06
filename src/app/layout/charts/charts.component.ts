@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { routerTransition } from '../../router.animations';
 import * as jsPDF from 'jspdf';
+import 'jspdf-autotable';
 import { ReportesService } from 'src/app/services/reportes.service';
 @Component({
     selector: 'app-charts',
@@ -28,6 +29,7 @@ export class ChartsComponent implements OnInit {
     public secondChart = false;
     public dateSecondChart;
     public optionSelected: number;
+    public lista = new Array();
 
 
     // bar chart
@@ -147,6 +149,11 @@ export class ChartsComponent implements OnInit {
 
     public selectTittle(op: any) {
         this.optionSelected = op.id;
+
+        for (let index = 0; index < 100; index++) {
+            this.lista.push(index);
+        }
+
         this.loadData(op);
         this.reportTittle = op.tittle;
         this.headers = op.dates;
@@ -176,16 +183,16 @@ export class ChartsComponent implements OnInit {
         );
         /*   const serie = array.series == null ? 'Cantidad' : array.dates[array.series];
            const label = array.dates[array.label];
-   
+
            this.barChartData = new Array({ data: [65, 59, 80, 81, 56, 55, 40], label: serie + ' 1' },
                { data: [28, 48, 40, 19, 86, 27, 90], label: serie + ' 2' },
                { data: [28, 48, 40, 19, 86, 27, 90], label: serie + ' 3' },
                { data: [28, 48, 40, 19, 86, 27, 90], label: serie + ' 4' },
                { data: [28, 48, 40, 19, 86, 27, 90], label: serie + ' 5' },
                { data: [28, 48, 40, 19, 86, 27, 90], label: serie + ' 6' });
-   
+
            const size = this.barChartLabels.length;
-   
+
            this.barChartLabels.push(
                label + ' 1',
                label + ' 2',
@@ -297,7 +304,13 @@ export class ChartsComponent implements OnInit {
         // doc.text('page ' + doc.page, doc.internal.pageSize.width - 40, doc.internal.pageSize.height - 10); // print number bottom right
 
         // doc.page++;
-        doc.addPage();
+        // doc.addPage();
+
+        doc.autoTable({
+            theme: 'grid',
+            html: '#my-table'
+        });
+
         doc = this.addFooters(doc);
 
         doc.save('a4.pdf');
@@ -320,5 +333,4 @@ export class ChartsComponent implements OnInit {
         }
         return doc;
     }
-
 }
