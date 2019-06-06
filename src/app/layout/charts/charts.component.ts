@@ -19,17 +19,15 @@ export class ChartsComponent implements OnInit {
     @Input() public typePage: string;
     @Input() public dateReport: JSON;
 
-    public reportTittle: string;
     public details = false;
     public lineChartLegend: boolean;
     public lineChartType: string;
     public pieChartData: number[] = [300, 500, 100];
     public pieChartType: string;
-    public headers: any;
     public secondChart = false;
     public dateSecondChart;
-    public optionSelected: number;
     public lista = new Array();
+    public reportSelect: any;
 
 
     // bar chart
@@ -148,15 +146,13 @@ export class ChartsComponent implements OnInit {
     ];
 
     public selectTittle(op: any) {
-        this.optionSelected = op.id;
+        this.reportSelect = op;
 
         for (let index = 0; index < 100; index++) {
             this.lista.push(index);
         }
 
         this.loadData(op);
-        this.reportTittle = op.tittle;
-        this.headers = op.dates;
         this.details = true;
         this.secondChart = false;
         if (op.tittle2) {
@@ -271,7 +267,7 @@ export class ChartsComponent implements OnInit {
 
         // Specify file name
         // let filename = filename?filename+'.doc':'document.doc';
-        const filename = this.reportTittle + '.doc';
+        const filename = this.reportSelect.tittle + '.doc';
         // Create download link element
         const downloadLink = document.createElement('a');
 
@@ -295,34 +291,24 @@ export class ChartsComponent implements OnInit {
     }
 
     downloadPDF() {
-        let doc = new jsPDF('portrait', 'px', 'a4');
+        const doc = new jsPDF('portrait', 'px', 'a4');
         // doc.page = 1;
-
 
         doc.text(' ¡Hola mundo! ', 10, 10);
         doc.setFontSize(10);
-        // doc.text('page ' + doc.page, doc.internal.pageSize.width - 40, doc.internal.pageSize.height - 10); // print number bottom right
-
-        // doc.page++;
-        // doc.addPage();
-
         doc.autoTable({
             theme: 'grid',
-            html: '#my-table'
+            html: '#my-table',
+            styles: {
+                cellWidth: 'wrap',
+                rowPageBreak: 'auto',
+                halign: 'center'
+            }
         });
 
-        doc = this.addFooters(doc);
+        // doc = this.addFooters(doc);
 
         doc.save('a4.pdf');
-
-        /*doc = new jsPDF({
-            orientation: 'landscape',
-            unit: 'in',
-            format: [4, 2]
-        });
-
-        doc.text('Hello world!', 1, 1);
-        doc.save('two-by-four.pdf');*/
 
     }
 
